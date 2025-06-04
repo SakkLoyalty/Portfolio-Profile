@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400;500;600;700;800;900&family=Source+Code+Pro:wght@200;300;400;500;600;700;800;900&display=swap");
 @import url("https://fonts.google.com/specimen/Noto+Serif+Khmer?query=khmer+");
+@import url('https://fonts.googleapis.com/css2?family=Kantumruy+Pro:ital,wght@0,100..700;1,100..700&display=swap');
 /* ---------- GLOBAL STYLING ---------- */
 * {
   margin: 0;
@@ -7,6 +8,11 @@
   box-sizing: border-box;
   font-family: "Raleway", sans-serif;
   font-family: "Source Code Pro", monospace;
+  font-family: "Kantumruy Pro", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  color: #fefefe;
+  
 }
 
 html {
@@ -120,11 +126,23 @@ body::selection {
   margin: 0;
 }
 
-/* #content-body {
+.content-body {
   display: flex;
   justify-content: space-around;
   align-items: center;
-} */
+  flex-wrap: wrap; /* Allows wrapping */
+  gap: 1rem; /* Adds spacing between items */
+  padding: 1rem;
+}
+
+@media (max-width: 768px) {
+  .content-body {
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
+  }
+}
+
 
 .navbar-title {
   display: flex;
@@ -300,11 +318,32 @@ body::selection {
 
 .hoodie-guy {
   position: absolute;
-  background: url(assets/Hoodie-guy.png);
   top: 100px;
   height: 550px;
   width: 550px;
+  overflow: hidden;
+}
+
+.hoodie-guy::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: url(assets/close-up-man-writing-code-laptop.jpg) no-repeat center center;
   background-size: cover;
+  filter: blur(8px); /* adjust blur strength */
+  z-index: -1;
+}
+.hoodie-guy img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  z-index: 1;
 }
 
 .circle {
@@ -435,8 +474,8 @@ body::selection {
 }
 
 .introduction-text p:nth-child(1) {
-  font-size: 14px;
-  color: #7c7d81;
+  font-size: 20px;
+  color: #ffffff;
   font-weight: 800;
 }
 
@@ -446,8 +485,8 @@ body::selection {
 
 .introduction-text h4 {
   font-size: 26px;
-  font-style: italic;
-}
+
+} 
 
 .introduction-text p {
   font-size: 18px;
@@ -481,7 +520,7 @@ body::selection {
 
 .latest-work-title p {
   font-size: 14px;
-  color: #7c7d81;
+  color: #f3f5fe;
   font-weight: 400;
   margin: 0;
 }
@@ -639,6 +678,8 @@ body::selection {
   border-radius: 8px;
   margin: 30px 0;
   display: block;
+  font-family: "Kantumruy Pro", sans-serif;
+
 }
 
 .star-rating {
@@ -662,7 +703,7 @@ body::selection {
 }
 
 .testimonial-card h4 {
-  font-family: "Raleway", sans-serif;
+    font-family: "Kantumruy Pro", sans-serif;
   font-size: 24px;
   line-height: 36px;
   max-width: 85%;
@@ -955,3 +996,4 @@ body::selection {
 .social-icons a:nth-child(6) i:hover {
   color: #3b5998;
 }
+
